@@ -19,4 +19,27 @@ class ipaymurest extends Controller
         ]);
         return $resp->getBody();
     }
+    public function paymentsingel(Request $req){
+        $client=new \GuzzleHttp\Client();
+        $resp=$client->post('https://my.ipaymu.com/payment',[
+            'form_params'=>[
+                'key'=>$req->key,
+                'action'=>'payment',
+                'product'=>$req->nama_produk,
+                'price'=>$req->price,
+                'quantity'=>$req->quantity,
+                'comments'=>'Keterangan Produk',
+                'ureturn'=>'http://websiteanda.com/return.php?q=return',
+                'unotify'=>'http://websiteanda.com/notify.php',
+                'ucancel'=>'http://websiteanda.com/cancel.php',
+                'format'=>'json',
+                'weight'=>'0.5',
+                'dimensi'=>'1:2:1',
+                'postal_code'=>'80361',
+                'address'=>'Jalan raya Kuta, No. 88 R, Badung, Bali',
+                'auto_redirect'=>'10',
+            ]
+        ]);
+    }
+
 }
