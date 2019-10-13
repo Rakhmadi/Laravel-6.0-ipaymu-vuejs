@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('getipaymu','ipaymurest@getsaldo');
 Route::get('cektraksansi','ipaymurest@cektransaksi');
+Route::get('payment','ipaymurest@paymentsingel');
