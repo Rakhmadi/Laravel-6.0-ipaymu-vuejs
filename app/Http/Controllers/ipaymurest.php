@@ -21,7 +21,7 @@ class ipaymurest extends Controller
                 'format'=>'json'
             ]
         ]);
-        return $resp->getBody();
+        return json_decode($resp->getBody(), true);
     }
 
     public function paymentsingel(Request $req){
