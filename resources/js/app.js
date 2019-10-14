@@ -5,9 +5,14 @@
  */
 
 require('./bootstrap');
-
+import 'vuetify/dist/vuetify.min.css';
 window.Vue = require('vue');
-
+window.Vuetify = require('vuetify');
+Vue.use(Vuetify, {
+    theme: {
+        primary: "#1464bf",
+      }
+})
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -26,10 +31,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+import 'vuetify/dist/vuetify.min.css'
 import App from './components/app.vue'
+
 import router from './router'
 const app = new Vue({
     el: '#app',
+     vuetify: new Vuetify(),
     components:{ App },
     router,
 });

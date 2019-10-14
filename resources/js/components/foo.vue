@@ -25,7 +25,6 @@ export default {
         axios.get('http://127.0.0.1:8000/api/cektraksansi?key=4FD6B4CC-9951-42B6-AD70-6B3B1433F394')
         .then(function(resp) {
             t.datas=resp.data.transaksi;
-        
             console.log(resp.data.transaksi);
         }).catch(function (err) {
             t.datas=err.response;
