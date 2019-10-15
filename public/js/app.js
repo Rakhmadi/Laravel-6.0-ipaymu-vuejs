@@ -2010,43 +2010,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     source: String
@@ -2091,22 +2054,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       datas: {
         id: ''
-      }
+      },
+      isload: false
     };
   },
   mounted: function mounted() {
     var t = this;
+    t.isload = true;
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/cektraksansi?key=4FD6B4CC-9951-42B6-AD70-6B3B1433F394').then(function (resp) {
       t.datas = resp.data.transaksi;
+      t.isload = false;
       console.log(resp.data.transaksi);
     })["catch"](function (err) {
       t.datas = err.response;
+      t.isload = true;
     });
   }
 });
@@ -38204,101 +38179,8 @@ var render = function() {
         [
           _c(
             "v-container",
-            { staticClass: "fill-height", attrs: { fluid: "" } },
-            [
-              _c(
-                "v-row",
-                { attrs: { align: "center", justify: "center" } },
-                [
-                  _c("router-view"),
-                  _vm._v(" "),
-                  _c(
-                    "v-col",
-                    { staticClass: "text-center" },
-                    [
-                      _c(
-                        "v-tooltip",
-                        {
-                          attrs: { left: "" },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "activator",
-                              fn: function(ref) {
-                                var on = ref.on
-                                return [
-                                  _c(
-                                    "v-btn",
-                                    _vm._g(
-                                      {
-                                        attrs: {
-                                          href: _vm.source,
-                                          icon: "",
-                                          large: "",
-                                          target: "_blank"
-                                        }
-                                      },
-                                      on
-                                    ),
-                                    [
-                                      _c("v-icon", { attrs: { large: "" } }, [
-                                        _vm._v("mdi-code-tags")
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ]
-                              }
-                            }
-                          ])
-                        },
-                        [_vm._v(" "), _c("span", [_vm._v("Source")])]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-tooltip",
-                        {
-                          attrs: { right: "" },
-                          scopedSlots: _vm._u([
-                            {
-                              key: "activator",
-                              fn: function(ref) {
-                                var on = ref.on
-                                return [
-                                  _c(
-                                    "v-btn",
-                                    _vm._g(
-                                      {
-                                        attrs: {
-                                          icon: "",
-                                          large: "",
-                                          href:
-                                            "https://codepen.io/johnjleider/pen/zgxeLQ",
-                                          target: "_blank"
-                                        }
-                                      },
-                                      on
-                                    ),
-                                    [
-                                      _c("v-icon", { attrs: { large: "" } }, [
-                                        _vm._v("mdi-codepen")
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ]
-                              }
-                            }
-                          ])
-                        },
-                        [_vm._v(" "), _c("span", [_vm._v("Codepen")])]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
+            { staticStyle: { float: "none" }, attrs: { fluid: "" } },
+            [_c("v-row", [_c("router-view")], 1)],
             1
           )
         ],
@@ -38335,25 +38217,34 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    _vm._l(_vm.datas, function(itm) {
-      return _c("div", { key: itm.id }, [
-        _vm._v(
-          "\n    buaya" +
-            _vm._s(itm.biaya) +
-            "\n    id " +
-            _vm._s(itm.id) +
-            "\n   jumblah " +
-            _vm._s(itm.jumlah) +
-            "\n   kode " +
-            _vm._s(itm.kode_status) +
-            "\n   penerima " +
-            _vm._s(itm.penerima) +
-            "\n"
-        )
-      ])
-    }),
-    0
+    "v-card",
+    { staticClass: "ma-4", attrs: { loading: _vm.isload } },
+    [
+      _c("v-card-title", [_vm._v("Transaksi")]),
+      _vm._v(" "),
+      _c(
+        "v-card-text",
+        _vm._l(_vm.datas, function(itm) {
+          return _c("div", { key: itm.id }, [
+            _vm._v(
+              "\n            \n    buaya" +
+                _vm._s(itm.biaya) +
+                "\n    id " +
+                _vm._s(itm.id) +
+                "\n   jumblah " +
+                _vm._s(itm.jumlah) +
+                "\n   kode " +
+                _vm._s(itm.kode_status) +
+                "\n   penerima " +
+                _vm._s(itm.penerima) +
+                "\n"
+            )
+          ])
+        }),
+        0
+      )
+    ],
+    1
   )
 }
 var staticRenderFns = []
