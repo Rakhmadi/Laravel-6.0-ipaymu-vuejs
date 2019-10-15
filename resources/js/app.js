@@ -33,12 +33,17 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 import 'vuetify/dist/vuetify.min.css'
+import '@mdi/font/css/materialdesignicons.css' 
 import App from './components/app.vue'
 
 import router from './router'
 const app = new Vue({
     el: '#app',
-     vuetify: new Vuetify(),
+     vuetify: new Vuetify({
+        icons: {
+            iconfont: 'mdi', 
+          },
+     }),
     components:{ App },
     router,
 });

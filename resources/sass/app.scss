@@ -1,6 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
-
-
+@import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900&display=swap");
+$body-font-family: "Maven Pro" !important;
 @import '~vuetify/dist/vuetify.min.css';
+@import "~vuetify/src/styles/styles.sass";
