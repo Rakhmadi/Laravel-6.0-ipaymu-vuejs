@@ -18,7 +18,7 @@
         "fibers": "^4.0.1",
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
-        "lodash": "^4.17.13",
+        "lodash": "^4.17.19",
         "material-design-icons-iconfont": "^5.0.1",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
